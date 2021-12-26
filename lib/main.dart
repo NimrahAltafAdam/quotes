@@ -39,11 +39,22 @@ class _QuoteListState extends State<QuoteList> {
       ),
       body: Column(
         //ALWAYS USE CURLY BRACKETS WHEN YOU WISH TO DEFINE OR DISPLAY THE PROPERTIES OF VARIABLES
-        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+        children: quotes.map((quote) => QuoteCard(
+          quote: quote,
+          delete: () {
+            setState(() {
+              quotes.remove(quote);
+            });
+          } ,
+        )).toList(),
       )
     );
   }
 }
 
 
-
+// delete: () {
+// setState(() {
+// quotes.remove(quote);
+// });
+// })
